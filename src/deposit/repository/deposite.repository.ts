@@ -21,7 +21,7 @@ export class DepositRepository extends Repository<Deposit> {
   async createDeposit(depositData: RequestDeposit) {
     try {
       const createDeposit = this.depositRepository.create({
-        user_id: depositData.userId,
+        uuid: depositData.uuid,
         amount: depositData.amount,
       });
       return await this.depositRepository.save(createDeposit);
@@ -33,7 +33,7 @@ export class DepositRepository extends Repository<Deposit> {
   async deleteDeposit(depositId: number) {
     try {
       const depositRecord = await this.depositRepository.findOneBy({
-        id: depositId,
+        deposit_id: depositId,
       });
       return await this.depositRepository.remove(depositRecord);
     } catch (error) {

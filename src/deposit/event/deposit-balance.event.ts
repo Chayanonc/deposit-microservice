@@ -1,8 +1,8 @@
 export class DepositBalance {
-  constructor(public readonly userId: string, public readonly amount: string) {}
+  constructor(public readonly uuid: string, public readonly amount: string) {}
   toString() {
     return JSON.stringify({
-      userId: this.userId,
+      uuid: this.uuid,
       amount: this.amount,
     });
   }

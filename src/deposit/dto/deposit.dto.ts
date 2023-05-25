@@ -1,4 +1,4 @@
 export class RequestDeposit {
-  userId: string;
+  uuid: string;
   amount: string;
 }

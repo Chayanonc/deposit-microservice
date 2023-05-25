@@ -20,7 +20,7 @@ export class DepositService {
     this.accountClient
       .send(
         'deposit_account_balance',
-        new DepositBalance(depositData.userId, depositData.amount),
+        new DepositBalance(depositData.uuid, depositData.amount),
       )
       .subscribe(async (user) => {
         console.log({ user });

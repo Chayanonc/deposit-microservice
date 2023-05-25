@@ -8,16 +8,17 @@ import {
 
 @Entity()
 export class Deposit {
-  @PrimaryGeneratedColumn('identity', {
-    generatedIdentity: 'ALWAYS',
-  })
-  id: number;
+  @PrimaryGeneratedColumn()
+  deposit_id: number;
 
   @Column()
-  user_id: string;
+  uuid: string;
 
   @Column()
   amount: string;
+
+  @Column()
+  transaction_type: string;
 
   @CreateDateColumn()
   created_date: Date;
