@@ -20,13 +20,28 @@ export class DepositService {
     //   ...depositData,
     // });
     // console.log({ depositData, result });
+    let balance;
+
+    this.accountClient
+      .send('get_user_balance', { uuid: depositData.uuid })
+      .subscribe(async (user) => {
+        balance = user.balance;
+      });
+
     this.accountClient
       .send(
-        'deposit_account_balance',
-        new DepositBalance(depositData.uuid, depositData.amount),
+        'update_balance',
+        new DepositBalance(
+          depositData.uuid,
+          parseFloat(balance) + parseFloat('' + depositData.amount),
+        ),
       )
       .subscribe(async (user) => {
         console.log({ user });
+        const result = await this.depositRepository.createDeposit({
+          ...depositData,
+        });
+        console.log({ result });
       });
   }
 }

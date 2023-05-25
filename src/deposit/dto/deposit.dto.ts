@@ -1,6 +1,6 @@
 export class RequestDeposit {
   uuid: string;
-  amount: string;
+  amount: number;
   transaction_type: string;
   account_number: string;
 }

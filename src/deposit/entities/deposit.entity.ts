@@ -15,7 +15,7 @@ export class Deposit {
   uuid: string;
 
   @Column()
-  amount: string;
+  amount: number;
 
   @Column()
   transaction_type: string;

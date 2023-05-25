@@ -16,6 +16,7 @@ export class DepositController implements OnModuleInit {
   }
 
   onModuleInit() {
-    this.accountClient.subscribeToResponseOf('deposit_account_balance');
+    this.accountClient.subscribeToResponseOf('get_user_balance');
+    this.accountClient.subscribeToResponseOf('update_balance');
   }
 }
