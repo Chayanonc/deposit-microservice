@@ -15,8 +15,11 @@ export class DepositService {
   ) {}
 
   async handleCreateDeposit(depositData: RequestDeposit) {
-    console.log({ depositData });
-
+    // console.log({ depositData });
+    // const result = await this.depositRepository.createDeposit({
+    //   ...depositData,
+    // });
+    // console.log({ depositData, result });
     this.accountClient
       .send(
         'deposit_account_balance',
@@ -24,12 +27,6 @@ export class DepositService {
       )
       .subscribe(async (user) => {
         console.log({ user });
-
-        // const result = await this.depositRepository.createDeposit({
-        //   userId: depositData.userId,
-        //   amount: depositData.amount,
-        // });
-        // console.log({ depositData, result });
       });
   }
 }

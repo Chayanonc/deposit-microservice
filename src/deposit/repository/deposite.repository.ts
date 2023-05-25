@@ -23,6 +23,8 @@ export class DepositRepository extends Repository<Deposit> {
       const createDeposit = this.depositRepository.create({
         uuid: depositData.uuid,
         amount: depositData.amount,
+        transaction_type: depositData.transaction_type,
+        account_number: depositData.account_number,
       });
       return await this.depositRepository.save(createDeposit);
     } catch (error) {

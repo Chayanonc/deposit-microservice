@@ -20,6 +20,9 @@ export class Deposit {
   @Column()
   transaction_type: string;
 
+  @Column()
+  account_number: string;
+
   @CreateDateColumn()
   created_date: Date;
 
